@@ -11,13 +11,18 @@ Record your responses inside the fenced code blocks below each question.
 1.  What is the command to generate a new component called '`my-map`'?
 
     ```sh
-    # your response here
+    ember generate component my-map
     ```
 
 1.  What files are created and/or edited to produce a component, and what are their responsibilities?
 
     ```md
-    <!-- your response here -->
+    in the `my-map` example the following files are created:
+    app/components/my-map.js
+      - a file where actions can be defined and handed off to the router where
+      they are performed finally
+    app/templates/components/my-map.hbs
+      - a file where a view can be defined and eventually loaded from a template
     ```
 
 1.  Suppose you have a component '`my-contact`', which is loaded from
@@ -25,7 +30,11 @@ Record your responses inside the fenced code blocks below each question.
     the syntax (code that is written) to render this component inside that template?
 
     ```html
-    <!-- your response here -->
+    {{#each model as |list|}}
+      {{my-contact/contacts
+        list=model
+      }}
+    {{/each}}
     ```
 
 1.  Each contact has multiple phone numbers. Suppose you also have '`my-phone`'
